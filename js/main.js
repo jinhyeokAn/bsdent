@@ -32,22 +32,6 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// Side rail: show current section label
-const railLabel = document.querySelector('[data-rail]');
-const sections = document.querySelectorAll('[data-section]');
-
-if (railLabel && sections.length) {
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        railLabel.textContent = entry.target.dataset.label;
-      }
-    });
-  }, { threshold: 0.5 });
-
-  sections.forEach(section => sectionObserver.observe(section));
-}
-
 // FAQ accordion (independent per item, height sized to actual content)
 document.querySelectorAll('.faq-item').forEach(item => {
   const btn = item.querySelector('.faq-q');
