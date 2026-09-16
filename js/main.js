@@ -1,3 +1,9 @@
+// Quick nav: scroll to top
+const quickTop = document.getElementById('quickTop');
+if (quickTop) {
+  quickTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
 // Mobile nav toggle
 const navToggle = document.getElementById('navToggle');
 const mainNav = document.getElementById('mainNav');
