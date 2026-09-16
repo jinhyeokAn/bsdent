@@ -42,18 +42,20 @@ if (railLabel && sections.length) {
   sections.forEach(section => sectionObserver.observe(section));
 }
 
-// FAQ accordion
+// FAQ accordion (independent per item, height sized to actual content)
 document.querySelectorAll('.faq-item').forEach(item => {
   const btn = item.querySelector('.faq-q');
+  const answer = item.querySelector('.faq-a');
   btn.addEventListener('click', () => {
     const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(open => {
-      open.classList.remove('open');
-      open.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-    });
-    if (!isOpen) {
+    if (isOpen) {
+      item.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      answer.style.maxHeight = '';
+    } else {
       item.classList.add('open');
       btn.setAttribute('aria-expanded', 'true');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
     }
   });
 });
