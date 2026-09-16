@@ -115,10 +115,24 @@ button{font-family:inherit;background:none;border:none;cursor:pointer;color:inhe
   .quick-nav #quickTop{background:none;}
 }
 
+/* ===== Top banner ===== */
+.top-banner{
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:51;
+  background:var(--dark);
+  color:#fff;
+  text-align:center;
+  font-size:12.5px;
+  font-weight:700;
+  letter-spacing:.3px;
+  padding:7px 10px;
+}
+
 /* ===== Header ===== */
 .site-header{
   position:fixed;
-  top:0; left:0; right:0;
+  top:29px; left:0; right:0;
   z-index:50;
   background:rgba(255,255,255,0.92);
   backdrop-filter:blur(8px);
@@ -385,6 +399,37 @@ button{font-family:inherit;background:none;border:none;cursor:pointer;color:inhe
   max-width:44ch;
 }
 
+.promise-extra{
+  margin-top:56px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.promise-extra-item{
+  padding:24px 22px;
+  background:var(--bg-alt);
+  border-radius:var(--radius-sm);
+}
+.promise-extra-item h3{
+  font-size:16px;
+  font-weight:700;
+  color:var(--accent-dark);
+  margin-bottom:10px;
+}
+.promise-extra-item p{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:8px;
+}
+.promise-extra-item p.warn{
+  color:#a9421f;
+  font-weight:600;
+  font-size:12px;
+}
+@media(max-width:900px){
+  .promise-extra{grid-template-columns:1fr;}
+}
+
 /* ===== Staff ===== */
 .staff-photo{
   width:100%;
@@ -432,7 +477,45 @@ button{font-family:inherit;background:none;border:none;cursor:pointer;color:inhe
   border-radius:999px;
 }
 
+.doctor-letter{
+  margin-top:40px;
+  padding:32px 30px;
+  background:linear-gradient(135deg, var(--bg-tint), var(--bg-alt));
+  border-radius:var(--radius-sm);
+  border-left:4px solid var(--accent);
+}
+.doctor-letter h3{
+  font-size:18px;
+  font-weight:800;
+  color:var(--accent-dark);
+  margin-bottom:14px;
+}
+.doctor-letter p{
+  color:var(--muted);
+  font-size:13.5px;
+  margin-bottom:10px;
+}
+.doctor-sign{
+  display:block;
+  margin-top:12px;
+  font-size:13px;
+  font-weight:700;
+  color:var(--fg);
+}
+
 /* ===== Trust (WHY BANSUK) ===== */
+.doctors-choice-tag{
+  display:inline-block;
+  font-family:var(--serif-en);
+  font-style:italic;
+  font-size:13px;
+  font-weight:700;
+  color:var(--accent-dark);
+  border:1.5px solid var(--accent-dark);
+  padding:6px 16px;
+  border-radius:999px;
+  margin-bottom:14px;
+}
 .trust .section-title{margin-bottom:16px;}
 .trust-lead{
   color:var(--muted);
@@ -604,8 +687,27 @@ button{font-family:inherit;background:none;border:none;cursor:pointer;color:inhe
 .treatment-item p{
   color:var(--muted);
   font-size:14.5px;
-  max-width:52ch;
+  max-width:58ch;
 }
+.point-list{margin-top:14px; display:flex; flex-direction:column; gap:8px;}
+.point-list li{
+  font-size:13.5px;
+  color:var(--muted);
+  padding:10px 14px;
+  background:#fff;
+  border-radius:8px;
+}
+.point-list li strong{color:var(--accent-dark); font-weight:700; margin-right:4px;}
+.point-note{
+  margin-top:12px;
+  font-size:13px;
+  color:var(--muted);
+  font-style:normal;
+  padding:10px 14px;
+  background:#fff;
+  border-radius:8px;
+}
+.point-note.warn{color:#a9421f; font-weight:600;}
 @media(max-width:700px){
   .treatment-item{grid-template-columns:1fr;gap:8px;}
 }
