@@ -50,12 +50,16 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 
-// Contact form (placeholder handler — wire up to real backend/CTA later)
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('상담 신청이 접수되었습니다. 실제 서비스에서는 이 부분을 예약 시스템/전화 연결로 교체해주세요.');
-    contactForm.reset();
+// Active nav link tracks the section currently in view
+const navLinks = mainNav.querySelectorAll('a[href^="#"]');
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const id = entry.target.id;
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+    });
   });
-}
+}, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+document.querySelectorAll('[data-section]').forEach(section => sectionObserver.observe(section));

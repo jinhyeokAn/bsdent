@@ -175,6 +175,7 @@ html{scrollbar-width:thin; scrollbar-color:var(--accent-dark) var(--page);}
   gap:clamp(16px,2.6vw,32px);
 }
 .main-nav a{
+  position:relative;
   font-size:13px;
   font-weight:600;
   letter-spacing:.2px;
@@ -182,6 +183,18 @@ html{scrollbar-width:thin; scrollbar-color:var(--accent-dark) var(--page);}
   transition:color .2s ease;
 }
 .main-nav a:hover{color:var(--accent);}
+.main-nav a.active{color:var(--accent-dark);}
+.main-nav a.active::after{
+  content:'';
+  position:absolute;
+  left:0; right:0; bottom:-6px;
+  height:2px;
+  border-radius:2px;
+  background:var(--accent);
+}
+@media(max-width:760px){
+  .main-nav a.active::after{bottom:-4px;}
+}
 
 .nav-toggle{
   display:none;
@@ -828,40 +841,24 @@ html{scrollbar-width:thin; scrollbar-color:var(--accent-dark) var(--page);}
   color:var(--accent-dark);
 }
 .contact-line a{color:var(--accent-dark); font-weight:700;}
-.contact-form{
+.contact-reserve-btn{
   margin-top:24px;
   display:flex;
-  background:var(--bg-alt);
-  border-radius:999px;
-  padding:6px 6px 6px 20px;
-}
-.contact-form input{
-  flex:1;
-  min-width:0;
-  border:none;
-  background:none;
-  font-family:inherit;
-  font-size:14.5px;
-  color:var(--fg);
-  outline:none;
-}
-.contact-form input::placeholder{color:var(--muted);}
-.contact-form button{
-  display:flex;
   align-items:center;
-  gap:8px;
+  justify-content:center;
+  gap:10px;
   background:var(--accent-dark);
   color:#fff;
-  padding:12px 22px;
+  padding:16px 24px;
   border-radius:999px;
-  font-size:13px;
+  font-size:14.5px;
   font-weight:700;
-  letter-spacing:.3px;
-  white-space:nowrap;
-  transition:background .2s ease;
+  letter-spacing:.2px;
+  box-shadow:var(--shadow-sm);
+  transition:background .2s ease, transform .2s ease;
 }
-.contact-form button:hover{background:var(--accent-deep);}
-.contact-form button:active{transform:scale(.96); transition-duration:.1s;}
+.contact-reserve-btn:hover{background:var(--accent-deep); transform:translateY(-2px); box-shadow:var(--shadow-md);}
+.contact-reserve-btn:active{transform:translateY(0) scale(.97); transition-duration:.1s;}
 @media(max-width:760px){
   .contact-grid{grid-template-columns:1fr;}
 }
